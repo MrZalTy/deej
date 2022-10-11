@@ -2,6 +2,7 @@ import * as DiscordJS from 'discord.js';
 import * as fs from 'fs';
 import * as path from 'path';
 
+import { botConfig } from '../config';
 import { Event } from './discord.type';
 
 const client = new DiscordJS.Client({
@@ -24,7 +25,8 @@ function loadEvents(): void {
 	});
 }
 
-function init(): void {
+async function init(): Promise<void> {
+	await client.login(botConfig.token);
 	loadEvents();
 }
 

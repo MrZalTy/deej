@@ -1,6 +1,5 @@
 import * as dotenv from 'dotenv';
 
-import { botConfig } from './config';
 import * as Discord from './discord';
 import { logger } from './logger';
 
@@ -9,7 +8,6 @@ async function main(): Promise<void> {
 
 	try {
 		await Discord.init();
-		await Discord.client.login(botConfig.token);
 	} catch (err) {
 		logger.error(err.message);
 		process.exit(1);
