@@ -24,10 +24,15 @@
     "test:e2e:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --config test/jest-e2e.config.ts --runInBand"
   },
   "dependencies": {
+    "discord-player": "^5.3.2",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
     "env-var": "^7.3.0",
-    "winston": "^3.8.2"
+    "soundcloud-scraper": "5.x",
+    "spotify-url-info": "3.x",
+    "winston": "^3.8.2",
+    "youtube-sr": "4.x",
+    "ytdl-core": "4.x"
   },
   "devDependencies": {
     "@types/jest": "^29.1.2",

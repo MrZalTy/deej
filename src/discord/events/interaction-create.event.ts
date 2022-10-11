@@ -13,6 +13,6 @@ export = {
 		if (!command) {
 			return;
 		}
-		await command.execute(interaction.client, interaction);
+		await command.execute(interaction);
 	},
 };
