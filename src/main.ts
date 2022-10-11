@@ -1,5 +1,7 @@
+import * as dotenv from 'dotenv';
+
 function main(): void {
-	// some code
+	dotenv.config();
 }
 
 main();
