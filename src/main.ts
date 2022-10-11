@@ -8,6 +8,7 @@ async function main(): Promise<void> {
 	dotenv.config();
 
 	try {
+		await Discord.init();
 		await Discord.client.login(botConfig.token);
 	} catch (err) {
 		logger.error(err.message);
