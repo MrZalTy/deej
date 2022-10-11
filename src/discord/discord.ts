@@ -1,4 +1,5 @@
 import { Client, Collection } from 'discord.js';
+import { Player } from 'discord-player';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -46,6 +47,12 @@ function loadEvents(): void {
 
 async function init(): Promise<void> {
 	client.commands = new Collection<string, Command>();
+	client.player = new Player(client, {
+		ytdlOptions: {
+			quality: 'highestaudio',
+			highWaterMark: 33554432,
+		},
+	});
 
 	await client.login(botConfig.token);
 	loadCommands();
