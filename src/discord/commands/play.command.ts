@@ -1,6 +1,8 @@
 import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 import { QueryType } from 'discord-player';
 
+import { AppName } from '../../constants';
+
 export = {
 	data: new SlashCommandBuilder()
 		.setName('play')
@@ -22,10 +24,10 @@ export = {
 				),
 		),
 	execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
-		const { client, guild } = interaction;
+		const { client, guild, user } = interaction;
 
 		try {
-			const member = guild.members.cache.get(interaction.user.id);
+			const member = guild.members.cache.get(user.id);
 
 			if (!member.voice.channel)
 				await interaction.reply({
@@ -33,7 +35,7 @@ export = {
 						new EmbedBuilder()
 							.setTitle(`**🔇 │** Voice channel not found`)
 							.setDescription('You need to be in a voice channel to use this command.')
-							.setFooter({ text: `${client.user.username}` }),
+							.setFooter({ text: `${AppName}` }),
 					],
 					ephemeral: true,
 				});
@@ -43,7 +45,7 @@ export = {
 			if (interaction.options.getSubcommand() === 'track') {
 				const query = interaction.options.getString('track', true);
 				const result = await client.player.search(query, {
-					requestedBy: interaction.user,
+					requestedBy: user,
 					searchEngine: QueryType.AUTO,
 				});
 
@@ -53,7 +55,7 @@ export = {
 							new EmbedBuilder()
 								.setTitle('**💿 │** Audio track not found')
 								.setDescription('There is no audio track found.')
-								.setFooter({ text: `${client.user.username}` }),
+								.setFooter({ text: `${AppName}` }),
 						],
 						ephemeral: true,
 					});
@@ -71,14 +73,14 @@ export = {
 							)
 							.setURL(track.url)
 							.setThumbnail(track.thumbnail)
-							.setFooter({ text: `${client.user.username}` }),
+							.setFooter({ text: `${AppName}` }),
 					],
 					ephemeral: true,
 				});
 			} else if (interaction.options.getSubcommand() === 'playlist') {
 				const query = interaction.options.getString('playlist', true);
 				const result = await client.player.search(query, {
-					requestedBy: interaction.user,
+					requestedBy: user,
 					searchEngine: QueryType.AUTO,
 				});
 
@@ -88,7 +90,7 @@ export = {
 							new EmbedBuilder()
 								.setTitle('**💿 │** Audio playlist not found')
 								.setDescription('There is no audio playlist found.')
-								.setFooter({ text: `${client.user.username}` }),
+								.setFooter({ text: `${AppName}` }),
 						],
 						ephemeral: true,
 					});
@@ -106,7 +108,7 @@ export = {
 							)
 							.setURL(playlist.url)
 							.setThumbnail(playlist.thumbnail)
-							.setFooter({ text: `${client.user.username}` }),
+							.setFooter({ text: `${AppName}` }),
 					],
 					ephemeral: true,
 				});
@@ -125,7 +127,7 @@ export = {
 					new EmbedBuilder()
 						.setTitle('**❌ │** Internal server error')
 						.setDescription('An error occurred when trying to execute this command.')
-						.setFooter({ text: `${client.user.username}` }),
+						.setFooter({ text: `${AppName}` }),
 				],
 				ephemeral: true,
 			});

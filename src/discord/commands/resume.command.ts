@@ -1,5 +1,7 @@
 import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 
+import { AppName } from '../../constants';
+
 export = {
 	data: new SlashCommandBuilder().setName('resume').setDescription('Resume the player.'),
 	execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
@@ -27,7 +29,7 @@ export = {
 					new EmbedBuilder()
 						.setTitle(`**▶ ️│** Player resumed`)
 						.setDescription('The player has been resumed.\n\nUse `/pause` to pause the player.')
-						.setFooter({ text: `${client.user.username}` }),
+						.setFooter({ text: `${AppName}` }),
 				],
 				ephemeral: true,
 			});
@@ -37,7 +39,7 @@ export = {
 					new EmbedBuilder()
 						.setTitle('**❌ │** Internal server error')
 						.setDescription('An error occurred when trying to execute this command.')
-						.setFooter({ text: `${client.user.username}` }),
+						.setFooter({ text: `${AppName}` }),
 				],
 				ephemeral: true,
 			});

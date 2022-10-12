@@ -1,5 +1,7 @@
 import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 
+import { AppName } from '../../constants';
+
 export = {
 	data: new SlashCommandBuilder().setName('skip').setDescription('Skip the currently playing audio track.'),
 	execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
@@ -14,7 +16,7 @@ export = {
 						new EmbedBuilder()
 							.setTitle('**💿 │** No audio track')
 							.setDescription('There is no audio track in the queue.')
-							.setFooter({ text: `${client.user.username}` }),
+							.setFooter({ text: `${AppName}` }),
 					],
 					ephemeral: true,
 				});
@@ -33,7 +35,7 @@ export = {
 						)
 						.setURL(track.url)
 						.setThumbnail(track.thumbnail)
-						.setFooter({ text: `${client.user.username}` }),
+						.setFooter({ text: `${AppName}` }),
 				],
 				ephemeral: true,
 			});
@@ -43,7 +45,7 @@ export = {
 					new EmbedBuilder()
 						.setTitle('**❌ │** Internal server error')
 						.setDescription('An error occurred when trying to execute this command.')
-						.setFooter({ text: `${client.user.username}` }),
+						.setFooter({ text: `${AppName}` }),
 				],
 				ephemeral: true,
 			});
