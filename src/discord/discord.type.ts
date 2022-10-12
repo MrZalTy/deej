@@ -1,4 +1,4 @@
-import { Collection, CommandInteraction, SlashCommandBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, Collection, SlashCommandBuilder } from 'discord.js';
 import { Player } from 'discord-player';
 
 declare module 'discord.js' {
@@ -10,7 +10,7 @@ declare module 'discord.js' {
 
 export interface Command {
 	data: SlashCommandBuilder;
-	execute: (interaction: CommandInteraction) => void;
+	execute: (interaction: ChatInputCommandInteraction) => void;
 }
 
 export interface Event {
