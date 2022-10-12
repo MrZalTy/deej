@@ -1,29 +1,45 @@
 <p align="center">
-    <a href="https://github.com/MrZalTy/nodejs-template">
-    <img src="https://cdn.svgporn.com/logos/nodejs.svg?response-content-disposition=attachment%3Bfilename%3Dnodejs.svg" width="80" alt="Logo" /></a>
+    <a href="https://github.com/MrZalTy/deej">
+    <img src=".github/assets/logo.png" width="160" alt="Logo" /></a>
 </p>
 
-<h1 align="center">Node.js Template</h1>
+<h1 align="center">DeeJ</h1>
 
-<p align="center">Quickly start a new Node.js project</p>
+<p align="center">A DeeJ for your Discord parties.</p>
 
 ---
 
-A template for your Node.js projects including Typescript, Eslint, Prettier, Jest and Docker.
+Do you need a DJ for your Discord parties? Just call DeeJ, he will come to your channel and play your favourite song!
+
+## 📕 How does it work ?
+
+The project uses the `Discord.js` SDK alongside `discord-player` package to stream audio tracks from different providers (Spotify, Youtube, Soundcloud...) to Discord.
 
 ## ⏩ Getting Started
 
 ### ⚙️ Installation
 
-Use the `Use this template` green button at the top of this repository to start a new project that uses this template.
+Install Docker using the [official documentation](https://docs.docker.com/compose/install/linux/) and pull the DeeJ Docker image:
+```shell
+docker pull ghcr.io/MrZalTy/deej:latest
+```
+
+### 🏁 Quickstart
+
+Edit the `.env.example` file according to your needs and renames it to `.env`.
+
+Start the DeeJ Docker container:
+```shell
+docker run -d --env-file .env ghcr.io/MrZalTy/deej:latest
+```
 
 ## 💻 Technologies
 
-<img src="https://skillicons.dev/icons?i=nodejs,ts,jest,docker" alt="technologies" />
+<img src="https://skillicons.dev/icons?i=nodejs,ts,docker" alt="technologies" />
 
 ## ✏️ License
 
-Node.js Template is distributed under the [MIT License](LICENSE)
+DeeJ is distributed under the [MIT License](LICENSE)
 
 ## ✍️ Authors
 
