@@ -1,9 +1,9 @@
 {
-  "name": "nodejs-template",
+  "name": "deej",
   "version": "1.0.0",
-  "description": "A template for your Node.js projects including Typescript, Eslint, Prettier, Jest and Docker.",
+  "description": "A DeeJ for your Discord parties.",
   "author": "Lorenzo Carneli",
-  "repository": "https://github.com/MrZalTy/nodejs-template",
+  "repository": "https://github.com/MrZalTy/deej",
   "license": "MIT",
   "private": true,
   "main": "src/main.ts",
@@ -24,7 +24,6 @@
     "test:e2e:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --config test/jest-e2e.config.ts --runInBand"
   },
   "dependencies": {
-    "@discordjs/voice": "discordjs/voice",
     "discord-player": "^5.3.2",
     "discord.js": "^14.6.0",
     "dotenv": "^16.0.3",
