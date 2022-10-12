@@ -1,10 +1,10 @@
-import { CommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 
 export = {
 	data: new SlashCommandBuilder()
 		.setName('info')
 		.setDescription('Display information about the currently playing audio track.'),
-	execute: async (interaction: CommandInteraction): Promise<void> => {
+	execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
 		const { client, guild } = interaction;
 
 		if (!guild) {

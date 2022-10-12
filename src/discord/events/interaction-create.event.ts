@@ -4,7 +4,7 @@ export = {
 	name: 'interactionCreate',
 	once: false,
 	execute: async (interaction: CommandInteraction): Promise<void> => {
-		if (!interaction.isCommand()) {
+		if (!interaction.isChatInputCommand()) {
 			return;
 		}
 
