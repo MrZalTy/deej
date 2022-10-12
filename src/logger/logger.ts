@@ -1,6 +1,7 @@
 import * as winston from 'winston';
 
 import { botConfig } from '../config';
+import { AppName } from '../constants';
 
 const { transports, format } = winston;
 
@@ -8,7 +9,7 @@ export const logger = winston.createLogger({
 	format: format.combine(
 		format.timestamp({ format: 'MM/DD/YYYY, h:mm:ss A' }),
 		format.colorize(),
-		format.printf((info) => `[DeeJ] ${info.level}	${info.timestamp} ${info.message}`),
+		format.printf((info) => `[${AppName}] ${info.level}	${info.timestamp} ${info.message}`),
 	),
 	transports: [
 		new transports.Console({

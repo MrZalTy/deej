@@ -1,5 +1,7 @@
 import { ChatInputCommandInteraction, EmbedBuilder, SlashCommandBuilder } from 'discord.js';
 
+import { AppName } from '../../constants';
+
 export = {
 	data: new SlashCommandBuilder()
 		.setName('queue')
@@ -19,7 +21,7 @@ export = {
 						new EmbedBuilder()
 							.setTitle('**💿 │** No audio track')
 							.setDescription('There is no audio track in the queue.')
-							.setFooter({ text: `${client.user.username}` }),
+							.setFooter({ text: `${AppName}` }),
 					],
 					ephemeral: true,
 				});
@@ -35,7 +37,7 @@ export = {
 						new EmbedBuilder()
 							.setTitle('**📃 │** Invalid page')
 							.setDescription(`There is only a total of \`${totalPages}\` pages of audio tracks.`)
-							.setFooter({ text: `${client.user.username}` }),
+							.setFooter({ text: `${AppName}` }),
 					],
 					ephemeral: true,
 				});
@@ -57,7 +59,7 @@ export = {
 						.setURL(currentTrack.url)
 						.setThumbnail(currentTrack.thumbnail)
 						.setFooter({
-							text: `Page ${page + 1} of ${totalPages} - ${client.user.username}`,
+							text: `Page ${page + 1} of ${totalPages} - ${AppName}`,
 						}),
 				],
 				ephemeral: true,
@@ -68,7 +70,7 @@ export = {
 					new EmbedBuilder()
 						.setTitle('**❌ │** Internal server error')
 						.setDescription('An error occurred when trying to execute this command.')
-						.setFooter({ text: `${client.user.username}` }),
+						.setFooter({ text: `${AppName}` }),
 				],
 				ephemeral: true,
 			});
