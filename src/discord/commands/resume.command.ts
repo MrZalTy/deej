@@ -5,34 +5,43 @@ export = {
 	execute: async (interaction: ChatInputCommandInteraction): Promise<void> => {
 		const { client, guild } = interaction;
 
-		if (!guild) {
-			return;
-		}
+		try {
+			const queue = client.player.getQueue(guild);
 
-		const queue = client.player.getQueue(guild);
+			if (!queue) {
+				await interaction.reply({
+					embeds: [
+						new EmbedBuilder()
+							.setTitle('**💿 │** No audio track')
+							.setDescription('There is no audio track in the queue.')
+							.setFooter({ text: `${client.user?.username}` }),
+					],
+					ephemeral: true,
+				});
+				return;
+			}
 
-		if (!queue) {
+			queue.setPaused(false);
 			await interaction.reply({
 				embeds: [
 					new EmbedBuilder()
-						.setTitle('**💿 │** No audio track')
-						.setDescription('There is no audio track in the queue.')
-						.setFooter({ text: `${client.user?.username}` }),
+						.setTitle(`**▶ ️│** Player resumed`)
+						.setDescription('The player has been resumed.\n\nUse `/pause` to pause the player.')
+						.setFooter({ text: `${client.user.username}` }),
 				],
 				ephemeral: true,
 			});
-			return;
+		} catch (err) {
+			await interaction.reply({
+				embeds: [
+					new EmbedBuilder()
+						.setTitle('**❌ │** Internal server error')
+						.setDescription('An error occurred when trying to execute this command.')
+						.setFooter({ text: `${client.user.username}` }),
+				],
+				ephemeral: true,
+			});
+			throw err;
 		}
-
-		queue.setPaused(false);
-		await interaction.reply({
-			embeds: [
-				new EmbedBuilder()
-					.setTitle(`**▶ ️│** Player resumed`)
-					.setDescription('The player has been resumed.\n\nUse `/pause` to pause the player.')
-					.setFooter({ text: `${client.user.username}` }),
-			],
-			ephemeral: true,
-		});
 	},
 };
