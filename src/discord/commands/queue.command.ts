@@ -44,14 +44,16 @@ export = {
 
 			const currentTrack = queue.current;
 			const nextTracks = queue.tracks.slice(page * 10, page * 10 + 10).map((track, i) => {
-				return `**💿 │ ${page * 10 + i + 1}.** ${track.title} - ${track.author}`;
+				return `**💿 │ ${page * 10 + i + 1}.** [${track.title}](${track.url}) - ${track.author}`;
 			});
 
 			await interaction.reply({
 				embeds: [
 					new EmbedBuilder()
 						.setTitle(`**💿 │** ${currentTrack.title}`)
-						.setDescription(`**Next tracks**\n\n${nextTracks.join('\n')}`)
+						.setDescription(
+							`**🎤 │** ${currentTrack.author}\n\n**Next tracks**\n\n${nextTracks.join('\n')}`,
+						)
 						.setURL(currentTrack.url)
 						.setThumbnail(currentTrack.thumbnail)
 						.setFooter({
