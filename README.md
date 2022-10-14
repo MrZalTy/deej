@@ -83,7 +83,6 @@ Skip the currently playing audio track.
 Set the volume of the player.
 ```shell
 /volume [level]
-```
 
 ## 💻 Technologies
 

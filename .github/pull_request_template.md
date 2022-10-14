@@ -4,15 +4,15 @@ Please provide a detailed description of what was done in this PR.
 
 ## 🆕 Changes include
 
-- [ ] Chore (change that affect the build system or external dependencies)
+- [ ] Chore (change that affect the build system or external dependencies).
 - [ ] Continuous integration or continuous deployment (change that affect CI/CD configuration files and scripts).
 - [ ] Documentation (change added to any kind of documentation).
 - [ ] Feature (non-breaking change that adds functionality).
 - [ ] Fix (non-breaking change that solves an issue).
-- [ ] Performance (non-breaking change that improves performance)
-- [ ] Refactor (change that neither fixes a bug nor adds a feature)
-- [ ] Style (change that do not affect the meaning of the code)
-- [ ] Test (change that adds missing tests or correcting existing tests)
+- [ ] Performance (non-breaking change that improves performance).
+- [ ] Refactor (change that neither fixes a bug nor adds a feature).
+- [ ] Style (change that do not affect the meaning of the code).
+- [ ] Test (change that adds missing tests or correcting existing tests).
 - [ ] Breaking change (change that is not backwards-compatible and/or changes current functionality).
 
 ## 🛠 Breaking changes
