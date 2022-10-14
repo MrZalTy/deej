@@ -9,7 +9,7 @@
 
 ---
 
-Do you need a DJ for your Discord parties? Just call DeeJ, he will come to your channel and play your favourites musics!
+Do you need a DJ for your Discord parties? Just call DeeJ, he will come to your channel and play your favorite music!
 
 ## 📕 How does it work?
 
