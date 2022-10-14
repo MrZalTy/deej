@@ -9,9 +9,9 @@
 
 ---
 
-Do you need a DJ for your Discord parties? Just call DeeJ, he will come to your channel and play your favourite song!
+Do you need a DJ for your Discord parties? Just call DeeJ, he will come to your channel and play your favorite music!
 
-## 📕 How does it work ?
+## 📕 How does it work?
 
 The project uses the `Discord.js` SDK alongside `discord-player` package to stream audio tracks from different providers (Spotify, Youtube, Soundcloud...) to Discord.
 
@@ -24,14 +24,65 @@ Install Docker using the [official documentation](https://docs.docker.com/compos
 docker pull ghcr.io/MrZalTy/deej:latest
 ```
 
-### 🏁 Quickstart
-
-Edit the `.env.example` file according to your needs and renames it to `.env`.
+Edit the `.env.example` file according to your needs and rename it to `.env`.
 
 Start the DeeJ Docker container:
 ```shell
 docker run -d --env-file .env ghcr.io/MrZalTy/deej:latest
 ```
+
+### 🏁 Quickstart
+
+⚠️ All these commands must be executed in Discord.
+
+Clear the queue.
+```shell 
+/clear
+```
+
+Display information about the currently playing audio track.
+```shell
+/info
+```
+
+Pause the player.
+```shell
+/pause
+```
+
+Play a single audio track based on provided keywords or from a URL.
+```shell
+/play track <track>
+```
+
+Play a list of audio tracks from a URL.
+```shell
+/play playlist <playlist>
+```
+
+Display information about the queue.
+```shell
+/queue [page]
+```
+
+Resume the player.
+```shell
+/resume
+```
+
+Shuffle the queue.
+```shell
+/shuffle
+```
+
+Skip the currently playing audio track.
+```shell
+/skip
+```
+
+Set the volume of the player.
+```shell
+/volume [level]
 
 ## 💻 Technologies
 
@@ -39,7 +90,7 @@ docker run -d --env-file .env ghcr.io/MrZalTy/deej:latest
 
 ## ✏️ License
 
-DeeJ is distributed under the [MIT License](LICENSE)
+DeeJ is distributed under the [MIT License](LICENSE).
 
 ## ✍️ Authors
 
@@ -57,4 +108,4 @@ DeeJ is distributed under the [MIT License](LICENSE)
 
 ---
 
-> 🚀 Don't forget to put a ⭐️ on my repositories !
+> 🚀 Don't forget to put a ⭐️ on my repositories!
